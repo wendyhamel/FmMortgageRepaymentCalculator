@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Mortgage repayment calculator</title>
 
   <link rel="stylesheet" href="./style/output.css">
+  <script defer src="src/calculations.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
 </head>
-<body>
+<body class="bg-theme-slate-lightest">
 <main>
   <div class="flex">
     <div class="size-6 bg-theme-lime"></div>
@@ -24,69 +26,67 @@
     <div class="size-6 bg-theme-slate-darkest"></div>
   </div>
 
-  <section>
+  <section x-data="repayMortgageCalc()" class="bg-white">
     <section>
       <form action="">
-          <h1>Mortgage Calculator</h1>
-          <a href="">Clear All</a>
+          <h1 class="font-bold text-lg text-theme-slate-darkest">Mortgage Calculator</h1>
+          <a class="text-theme-slate-darker" href="">Clear All</a>
         <div>
-          <label for="price" class="block text-sm/6 font-medium text-gray-900">Mortgage Amount</label>
+          <label for="amount" class="block text-sm/6 font-medium text-theme-slate-darker">Mortgage Amount</label>
           <div class="mt-2">
-            <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-              <div class="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">&pound;</div>
-              <input type="text" name="price" id="price" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="price-currency">
+            <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+              <div class="shrink-0 select-none text-base text-theme-slate-darker sm:text-sm/6">&pound;</div>
+              <input type="text" name="amount" id="amount" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="mortgage-amount">
             </div>
           </div>
           <div>
-            <label for="price" class="block text-sm/6 font-medium text-gray-900">Mortgage Term</label>
+            <label for="term" class="block text-sm/6 font-medium text-theme-slate-darker">Mortgage Term</label>
             <div class="mt-2">
-              <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                <input type="text" name="price" id="price" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="price-currency">
-                <div id="price-currency" class="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">years</div>
+              <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+                <input type="text" name="term" id="term" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="mortgage-term">
+                <div id="mortgage-term" class="shrink-0 select-none text-base text-theme-slate-darker sm:text-sm/6">years</div>
               </div>
             </div>
           </div>
           <div>
-            <label for="price" class="block text-sm/6 font-medium text-gray-900">Interest Rate</label>
+            <label for="rate" class="block text-sm/6 font-medium text-theme-slate-darker">Interest Rate</label>
             <div class="mt-2">
-              <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                <input type="text" name="price" id="price" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-gray-900 placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="price-currency">
-                <div id="price-currency" class="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">%</div>
+              <div class="flex items-center rounded-md bg-white px-3 outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+                <input type="text" name="rate" id="rate" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" placeholder="0.00" aria-describedby="interest-rate">
+                <div id="interest-rate" class="shrink-0 select-none text-base text-theme-slate-darker sm:text-sm/6">%</div>
               </div>
             </div>
           </div>
           <fieldset aria-label="Privacy setting" class="-space-y-px rounded-md bg-white">
-            <legend for="price" class="block text-sm/6 font-medium text-gray-900">Mortgage Type</legend>
-            <label value="Public access" aria-label="Public access" aria-description="This project would be available to anyone who has the link" class="group flex cursor-pointer border border-gray-200 p-4 first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md focus:outline-none has-[:checked]:relative has-[:checked]:border-indigo-200 has-[:checked]:bg-indigo-50">
-              <input name="privacy-setting" value="Public access" type="radio" checked class="relative mt-0.5 size-4 shrink-0 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
+            <legend for="price" class="block text-sm/6 font-medium text-theme-slate-darker">Mortgage Type</legend>
+            <label value="Public access" aria-label="Public access" aria-description="This project would be available to anyone who has the link" class="group flex cursor-pointer border border-theme-slate-lighter p-4 first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-indigo-50">
+              <input name="privacy-setting" value="Public access" type="radio" checked class="relative mt-0.5 size-4 shrink-0 appearance-none rounded-full border border-theme-slate-lighter bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
               <span class="ml-3 flex flex-col">
-      <span class="block text-sm font-medium text-gray-900 group-has-[:checked]:text-indigo-900">Repayment</span>
-    </span>
+                <span class="block text-sm font-medium text-theme-slate-darker group-has-[:checked]:text-theme-lime">Repayment</span>
+              </span>
             </label>
-            <label value="Private to project members" aria-label="Private to project members" aria-description="Only members of this project would be able to access" class="group flex cursor-pointer border border-gray-200 p-4 first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md focus:outline-none has-[:checked]:relative has-[:checked]:border-indigo-200 has-[:checked]:bg-indigo-50">
-              <input name="privacy-setting" value="Private to project members" type="radio" class="relative mt-0.5 size-4 shrink-0 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
+            <label value="Private to project members" aria-label="Private to project members" aria-description="Only members of this project would be able to access" class="group flex cursor-pointer border border-theme-slate-lighter p-4 first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-indigo-50">
+              <input name="privacy-setting" value="Private to project members" type="radio" class="relative mt-0.5 size-4 shrink-0 appearance-none rounded-full border border-theme-slate-lighter bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
               <span class="ml-3 flex flex-col">
-      <span class="block text-sm font-medium text-gray-900 group-has-[:checked]:text-indigo-900">Interest Only</span>
-    </span>
+                <span class="block text-sm font-medium text-theme-slate-darker group-has-[:checked]:text-theme-lime">Interest Only</span>
+              </span>
             </label>
           </fieldset>
-          <button type="submit">Calculate Repayments</button>
-
+          <button type="button" x-on:click="showResults = !showResults" class="bg-theme-lime rounded-full text-theme-slate-darkest flex items-center gap-x-2 px-8 py-2 font-bold">
+            <img src="assets/images/icon-calculator.svg" alt="" class="shrink-0">Calculate Repayments</button>
         </div>
-
-
       </form>
     </section>
-    <section>
+    <section class="bg-theme-slate-darkest text-white">
       <!-- Empty results start -->
-      <section>
+      <section x-show="!showResults">
         <img src="assets/images/illustration-empty.svg">
         <h2>Results shown here</h2>
         <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
       </section>
       <!-- Empty results end -->
       <!-- Completed results start -->
-      <section>
+      <section x-show="showResults">
         <h2>Your results</h2>
         <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
 

@@ -2,7 +2,8 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --font-sans: "PlusJakartaSans", sans-serif;
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+	"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
       "Liberation Mono", "Courier New", monospace;
@@ -710,23 +711,8 @@
   .mt-0\.5 {
     margin-top: calc(var(--spacing) * 0.5);
   }
-  .mt-1 {
-    margin-top: calc(var(--spacing) * 1);
-  }
   .mt-1\.5 {
     margin-top: calc(var(--spacing) * 1.5);
-  }
-  .mt-2 {
-    margin-top: calc(var(--spacing) * 2);
-  }
-  .mb-1 {
-    margin-bottom: calc(var(--spacing) * 1);
-  }
-  .mb-1\.5 {
-    margin-bottom: calc(var(--spacing) * 1.5);
-  }
-  .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
   }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
@@ -821,24 +807,9 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
-  .size-4 {
-    width: calc(var(--spacing) * 4);
-    height: calc(var(--spacing) * 4);
-  }
-  .size-4\.5 {
-    width: calc(var(--spacing) * 4.5);
-    height: calc(var(--spacing) * 4.5);
-  }
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
-  }
-  .size-6 {
-    width: calc(var(--spacing) * 6);
-    height: calc(var(--spacing) * 6);
-  }
-  .h-full {
-    height: 100%;
   }
   .h-screen {
     height: 100vh;
@@ -1276,9 +1247,6 @@
   .gap-1\.5 {
     gap: calc(var(--spacing) * 1.5);
   }
-  .gap-2 {
-    gap: calc(var(--spacing) * 2);
-  }
   .-space-y-px {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -1458,10 +1426,6 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-1 {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -1555,23 +1519,11 @@
   .bg-theme-lime {
     background-color: var(--color-theme-lime);
   }
-  .bg-theme-red {
-    background-color: var(--color-theme-red);
-  }
-  .bg-theme-slate-darker {
-    background-color: var(--color-theme-slate-darker);
-  }
   .bg-theme-slate-darkest {
     background-color: var(--color-theme-slate-darkest);
   }
-  .bg-theme-slate-lighter {
-    background-color: var(--color-theme-slate-lighter);
-  }
   .bg-theme-slate-lightest {
     background-color: var(--color-theme-slate-lightest);
-  }
-  .bg-theme-slate-neutral {
-    background-color: var(--color-theme-slate-neutral);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -1751,6 +1703,9 @@
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
   .px-8 {
     padding-inline: calc(var(--spacing) * 8);
   }
@@ -1760,20 +1715,14 @@
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
-  .pr-1 {
-    padding-right: calc(var(--spacing) * 1);
-  }
-  .pr-2 {
-    padding-right: calc(var(--spacing) * 2);
+  .pt-8 {
+    padding-top: calc(var(--spacing) * 8);
   }
   .pr-3 {
     padding-right: calc(var(--spacing) * 3);
   }
   .pl-1 {
     padding-left: calc(var(--spacing) * 1);
-  }
-  .pl-2 {
-    padding-left: calc(var(--spacing) * 2);
   }
   .pl-3 {
     padding-left: calc(var(--spacing) * 3);
@@ -1820,13 +1769,13 @@
   .align-top {
     vertical-align: top;
   }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
   .text-base {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -1843,10 +1792,6 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
-  }
-  .font-medium {
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
   }
   .text-balance {
     text-wrap: balance;
@@ -2022,9 +1967,6 @@
   .underline {
     text-decoration-line: underline;
   }
-  .decoration-current {
-    text-decoration-color: currentColor;
-  }
   .decoration-dashed {
     text-decoration-style: dashed;
   }
@@ -2045,9 +1987,6 @@
   }
   .decoration-from-font {
     text-decoration-thickness: from-font;
-  }
-  .underline-offset-1 {
-    text-underline-offset: 1px;
   }
   .underline-offset-2 {
     text-underline-offset: 2px;
@@ -2403,51 +2342,16 @@
   .transform-view {
     transform-box: view-box;
   }
-  .group-has-\[\:checked\]\:text-theme-lime {
-    &:is(:where(.group):has(*:is(:checked)) *) {
-      color: var(--color-theme-lime);
-    }
-  }
   .before\:absolute {
     &::before {
       content: var(--tw-content);
       position: absolute;
     }
   }
-  .before\:inset-0\.5 {
-    &::before {
-      content: var(--tw-content);
-      inset: calc(var(--spacing) * 0.5);
-    }
-  }
   .before\:inset-1 {
     &::before {
       content: var(--tw-content);
       inset: calc(var(--spacing) * 1);
-    }
-  }
-  .before\:inset-\[0\.75\] {
-    &::before {
-      content: var(--tw-content);
-      inset: 0.75;
-    }
-  }
-  .before\:inset-\[0\.75em\] {
-    &::before {
-      content: var(--tw-content);
-      inset: 0.75em;
-    }
-  }
-  .before\:inset-\[0\.75px\] {
-    &::before {
-      content: var(--tw-content);
-      inset: 0.75px;
-    }
-  }
-  .before\:inset-\[0\.75rem\] {
-    &::before {
-      content: var(--tw-content);
-      inset: 0.75rem;
     }
   }
   .before\:rounded-full {
@@ -2462,34 +2366,9 @@
       background-color: var(--color-white);
     }
   }
-  .first\:rounded-tl-md {
-    &:first-child {
-      border-top-left-radius: var(--radius-md);
-    }
-  }
-  .first\:rounded-tr-md {
-    &:first-child {
-      border-top-right-radius: var(--radius-md);
-    }
-  }
-  .last\:rounded-br-md {
-    &:last-child {
-      border-bottom-right-radius: var(--radius-md);
-    }
-  }
-  .last\:rounded-bl-md {
-    &:last-child {
-      border-bottom-left-radius: var(--radius-md);
-    }
-  }
   .checked\:border-theme-lime {
     &:checked {
       border-color: var(--color-theme-lime);
-    }
-  }
-  .checked\:bg-theme-lime {
-    &:checked {
-      background-color: var(--color-theme-lime);
     }
   }
   .checked\:before\:bg-theme-lime {
@@ -2623,24 +2502,9 @@
       border-color: var(--color-theme-lime);
     }
   }
-  .has-\[\:checked\]\:bg-indigo-50 {
-    &:has(*:is(:checked)) {
-      background-color: var(--color-indigo-50);
-    }
-  }
   .has-\[\:checked\]\:bg-theme-lime\/10 {
     &:has(*:is(:checked)) {
       background-color: color-mix(in oklab, var(--color-theme-lime) 10%, transparent);
-    }
-  }
-  .has-\[\:checked\]\:bg-theme-lime\/20 {
-    &:has(*:is(:checked)) {
-      background-color: color-mix(in oklab, var(--color-theme-lime) 20%, transparent);
-    }
-  }
-  .has-\[\:checked\]\:bg-theme-lime\/50 {
-    &:has(*:is(:checked)) {
-      background-color: color-mix(in oklab, var(--color-theme-lime) 50%, transparent);
     }
   }
   .sm\:text-sm\/6 {
@@ -2681,20 +2545,7 @@
     }
   }
 }
-@font-face {
-  font-family: PlusJakartaSans;
-  font-style: normal;
-  font-weight: 500 700;
-  font-display: swap;
-  src: url("assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("ttf");
-}
-@font-face {
-  font-family: PlusJakartaSans;
-  font-style: italic;
-  font-weight: 500 700;
-  font-display: swap;
-  src: url("assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf") format("ttf");
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @keyframes spin {
   to {
     transform: rotate(360deg);

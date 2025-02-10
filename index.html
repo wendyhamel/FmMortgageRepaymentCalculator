@@ -18,69 +18,67 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
 </head>
-<body class="bg-theme-slate-lightest antialiased">
+<body class="bg-theme-slate-lightest">
 <main>
   <section x-data="repayMortgageCalc()" class="bg-white">
-    <section class="pt-8 px-6">
+    <section class="py-8 px-6">
       <form action="">
-        <div class="flex flex-col gap-1.5 md:flex-row md:justify-between mb-4">
+        <div class="flex flex-col gap-2 md:flex-row md:justify-between mb-6">
           <h1 class="font-bold text-2xl text-theme-slate-darkest">Mortgage Calculator</h1>
-          <button type="button" class="inline-flex text-theme-slate-darker underline underline-offset-2">Clear All</button>
+          <button type="button" class="inline-flex text-theme-slate-darker tracking-[0.01em] underline underline-offset-2 decoration-2 decoration-theme-slate-darker/40">Clear All</button>
         </div>
-        <div class="space-y-4">
+        <div class="space-y-6">
           <div>
-            <label for="amount" class="block text-sm/6 text-theme-slate-darker">Mortgage Amount</label>
-            <div class="mt-1.5">
-              <div class="flex items-center rounded-md bg-white pr-3 overflow-hidden outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
-                <div class="shrink-0 select-none bg-theme-slate-lightest py-1.5 px-3 text-base text-theme-slate-darker sm:text-sm/6">&pound;</div>
-                <input type="text" name="amount" id="amount" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" aria-describedby="mortgage-amount">
+            <label for="amount" class="block text-theme-slate-darker tracking-[0.008em] pb-px">Mortgage Amount</label>
+            <div class="mt-2.5">
+              <div class="flex items-center rounded-sm bg-white pr-4 overflow-hidden outline outline-1 outline-theme-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+                <div class="shrink-0 select-none bg-theme-slate-lightest py-2.5 px-4 text-lg font-bold text-theme-slate-darker">&pound;</div>
+                <input type="text" name="amount" id="amount" class="block min-w-0 grow py-2.5 pl-1 pr-3 text-lg text-theme-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-amount">
               </div>
             </div>
           </div>
           <div>
-            <label for="term" class="block text-sm/6 text-theme-slate-darker">Mortgage Term</label>
-            <div class="mt-1.5">
-              <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
-                <input type="text" name="term" id="term" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" aria-describedby="mortgage-term">
-                <div id="mortgage-term" class="shrink-0 select-none bg-theme-slate-lightest py-1.5 px-3 text-base text-theme-slate-darker sm:text-sm/6">years</div>
+            <label for="term" class="block text-theme-slate-darker tracking-[0.008em] py-px">Mortgage Term</label>
+            <div class="mt-2.5">
+              <div class="flex items-center rounded-sm bg-white pl-4 outline outline-1 outline-theme-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+                <input type="text" name="term" id="term" class="block min-w-0 grow py-2.5 pl-1 pr-3 text-lg text-theme-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-term">
+                <div id="mortgage-term" class="shrink-0 select-none bg-theme-slate-lightest py-2.5 px-4 text-lg font-bold text-theme-slate-darker">years</div>
               </div>
             </div>
           </div>
           <div>
-            <label for="rate" class="block text-sm/6 text-theme-slate-darker">Interest Rate</label>
-            <div class="mt-1.5">
-              <div class="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-theme-slate-lighter focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
-                <input type="text" name="rate" id="rate" class="block min-w-0 grow py-1.5 pl-1 pr-3 text-base text-theme-slate-darker focus:outline focus:outline-0 sm:text-sm/6" aria-describedby="interest-rate">
-                <div id="interest-rate" class="shrink-0 select-none bg-theme-slate-lightest py-1.5 px-3 text-base text-theme-slate-darker sm:text-sm/6">%</div>
+            <label for="rate" class="block text-theme-slate-darker tracking-[0.008em] py-px">Interest Rate</label>
+            <div class="mt-2.5">
+              <div class="flex items-center rounded-sm bg-white pl-4 outline outline-1 outline-theme-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-theme-lime">
+                <input type="text" name="rate" id="rate" class="block min-w-0 grow py-2.5 pl-1 pr-3 text-lg text-theme-slate-darker focus:outline focus:outline-0" aria-describedby="interest-rate">
+                <div id="interest-rate" class="shrink-0 select-none bg-theme-slate-lightest py-2.5 px-4 text-lg font-bold text-theme-slate-darker">%</div>
               </div>
             </div>
           </div>
-          <fieldset aria-label="mortgage type" class="-space-y-px rounded-md bg-white space-y-1.5">
-            <legend for="price" class="block text-sm/6 text-theme-slate-darker">Mortgage Type</legend>
-            <label value="Repayment" aria-label="Repayment" class="group flex cursor-pointer border border-theme-slate-lighter p-4 rounded-md focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-theme-lime/10">
-              <input name="mortgage type" value="Repayment" type="radio" checked class="relative mt-0.5 size-5 shrink-0 appearance-none rounded-full border-2 border-theme-slate-lighter bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:before:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
-              <span class="ml-3 flex flex-col">
-                <span class="block text-sm font-bold text-theme-slate-darkest">Repayment</span>
-              </span>
+          <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3">
+            <legend for="price" class="block text-theme-slate-darker tracking-[0.008em] pt-px">Mortgage Type</legend>
+            <label value="Repayment" aria-label="Repayment" class="group flex items-center cursor-pointer outline outline-theme-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-theme-lime/10">
+              <input name="mortgage type" value="Repayment" type="radio" class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-theme-slate-darker bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:before:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
+              <span class="block text-lg font-bold text-theme-slate-darkest tracking-[0.008em] ml-4.5">Repayment</span>
             </label>
-            <label value="Interest Only" aria-label="Interest Only" class="group flex cursor-pointer border border-theme-slate-lighter p-4 rounded-md focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-theme-lime/10">
-              <input name="mortgage type" value="Interest Only" type="radio" class="relative mt-0.5 size-5 shrink-0 appearance-none rounded-full border-2 border-theme-slate-lighter bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:before:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
-              <span class="ml-3 flex flex-col">
-                <span class="block text-sm font-bold text-theme-slate-darkest">Interest Only</span>
-              </span>
+            <label value="Interest Only" aria-label="Interest Only" class="group flex items-center cursor-pointer outline outline-theme-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:border-theme-lime has-[:checked]:bg-theme-lime/10">
+              <input name="mortgage type" value="Interest Only" type="radio" class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-theme-slate-darker bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-theme-lime checked:before:bg-theme-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-lime disabled:border-theme-slate-lighter disabled:bg-theme-slate-lightest disabled:before:bg-theme-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
+              <span class="block text-lg font-bold text-theme-slate-darkest tracking-[0.008em] ml-4.5">Interest Only</span>
             </label>
           </fieldset>
-          <button type="button" x-on:click="showResults = !showResults" class="bg-theme-lime rounded-full text-theme-slate-darkest flex items-center gap-x-2 px-8 py-2 font-bold">
-            <img src="assets/images/icon-calculator.svg" alt="" class="shrink-0">Calculate Repayments</button>
+          <button type="button" x-on:click="showResults = !showResults" class="w-full flex justify-center items-center gap-3 bg-theme-lime rounded-full px-4 py-3.5">
+            <img src="assets/images/icon-calculator.svg" alt="" class="shrink-0">
+            <span class="text-lg text-theme-slate-darkest font-bold">Calculate Repayments</span>
+          </button>
         </div>
       </form>
     </section>
-    <section class="bg-theme-slate-darkest text-white">
+    <section class="bg-theme-slate-darkest text-white py-8">
       <!-- Empty results start -->
-      <section x-show="!showResults">
-        <img src="assets/images/illustration-empty.svg">
-        <h2>Results shown here</h2>
-        <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+      <section x-show="!showResults" class="space-y-4">
+        <img class="mx-auto" src="assets/images/illustration-empty.svg">
+        <h2 class="text-center text-2xl font-bold antialiased">Results shown here</h2>
+        <p class="text-center text-theme-slate-lighter tracking-[0.008em]">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
       </section>
       <!-- Empty results end -->
       <!-- Completed results start -->

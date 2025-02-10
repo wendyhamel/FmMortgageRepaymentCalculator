@@ -15,8 +15,11 @@
 	--color-slate-lightest: hsl(202, 86%, 94%);
 	--color-slate-lighter: hsl(203, 41%, 72%);
 	--color-slate-neutral: hsl(200, 26%, 54%);
-	--color-slate-darker: hsl(200, 24%, 40%);
-	--color-slate-darkest: hsl(202, 55%, 16%);
+	--color-slate-dark: hsl(200, 24%, 40%);
+	--color-slate-darker: hsl(202, 55%, 16%);
+	--color-slate-darkest: rgb(14 36 49);
 
 	--tracking-tiny: 0.008em;
+
+	--lime-top: 0 -4px 0px 0px var(--color-lime);
 }

@@ -8,11 +8,15 @@
 	--font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
 	"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-	--color-theme-lime: hsl(61, 70%, 52%);
-	--color-theme-red: hsl(4, 69%, 50%);
-	--color-theme-slate-lightest: hsl(202, 86%, 94%);
-	--color-theme-slate-lighter: hsl(203, 41%, 72%);
-	--color-theme-slate-neutral: hsl(200, 26%, 54%);
-	--color-theme-slate-darker: hsl(200, 24%, 40%);
-	--color-theme-slate-darkest: hsl(202, 55%, 16%);
+	--color-*: initial;
+	--color-white: hsl(0, 0%, 100%);
+	--color-lime: hsl(61, 70%, 52%);
+	--color-red: hsl(4, 69%, 50%);
+	--color-slate-lightest: hsl(202, 86%, 94%);
+	--color-slate-lighter: hsl(203, 41%, 72%);
+	--color-slate-neutral: hsl(200, 26%, 54%);
+	--color-slate-darker: hsl(200, 24%, 40%);
+	--color-slate-darkest: hsl(202, 55%, 16%);
+
+	--tracking-tiny: 0.008em;
 }

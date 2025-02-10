@@ -18,44 +18,44 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
 </head>
-<body class="bg-slate-lightest">
-<main>
-  <section x-data="repayMortgageCalc()" class="bg-white">
-    <section class="py-8 px-6">
+<body class="bg-slate-lightest min-h-dvh md:grid md:place-content-center">
+<main class="max-w-screen-lg mx-auto sm:px-4 sm:py-8 lg:py-0 lg:px-2">
+  <section x-data="repayMortgageCalc()" class="bg-white sm:rounded-3xl sm:overflow-hidden md:flex">
+    <section class="py-8 px-6 md:px-8 md:pt-8 md:pb-16 md:grow lg:p-10">
       <form action="">
-        <div class="flex flex-col gap-2 md:flex-row md:justify-between mb-6">
+        <div class="flex flex-col gap-2 mb-6 lg:flex-row lg:justify-between lg:items-center lg:mb-10">
           <h1 class="font-bold text-2xl text-slate-darker">Mortgage Calculator</h1>
           <button type="button" class="inline-flex text-slate-dark tracking-[0.01em] underline underline-offset-2 decoration-2 decoration-slate-dark/40">Clear All</button>
         </div>
-        <div class="space-y-6">
-          <div>
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="col-span-full">
             <label for="amount" class="block text-slate-dark tracking-tiny pb-px">Mortgage Amount</label>
             <div class="mt-2.5">
               <div class="flex items-center rounded-sm bg-white overflow-hidden outline outline-1 outline-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-lime">
                 <div class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">&pound;</div>
-                <input type="text" name="amount" id="amount" class="block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-amount">
+                <input type="text" name="amount" id="amount" class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-amount">
               </div>
             </div>
           </div>
-          <div>
+          <div class="col-span-1">
             <label for="term" class="block text-slate-dark tracking-tiny py-px">Mortgage Term</label>
             <div class="mt-2.5">
               <div class="flex items-center rounded-sm bg-white outline outline-1 outline-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-lime">
-                <input type="text" name="term" id="term" class="block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-term">
+                <input type="text" name="term" id="term" class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="mortgage-term">
                 <div id="mortgage-term" class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">years</div>
               </div>
             </div>
           </div>
-          <div>
+          <div class="col-span-1">
             <label for="rate" class="block text-slate-dark tracking-tiny py-px">Interest Rate</label>
             <div class="mt-2.5">
               <div class="flex items-center rounded-sm bg-white outline outline-1 outline-slate-neutral focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-lime">
-                <input type="text" name="rate" id="rate" class="block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="interest-rate">
+                <input type="text" name="rate" id="rate" class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0" aria-describedby="interest-rate">
                 <div id="interest-rate" class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">%</div>
               </div>
             </div>
           </div>
-          <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3">
+          <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3 col-span-full">
             <legend for="price" class="block text-slate-dark tracking-tiny pt-px">Mortgage Type</legend>
             <label value="Repayment" aria-label="Repayment" class="group flex items-center cursor-pointer outline outline-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:outline-lime has-[:checked]:bg-lime/10">
               <input name="mortgage type" value="Repayment" checked type="radio" class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-slate-dark bg-white before:absolute before:inset-[3px] before:rounded-full before:bg-white checked:border-lime checked:before:bg-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime disabled:border-slate-lighter disabled:bg-slate-lightest disabled:before:bg-slate-neutral forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden">
@@ -66,30 +66,32 @@
               <span class="block text-lg font-bold text-slate-darker tracking-tiny ml-4.5">Interest Only</span>
             </label>
           </fieldset>
-          <button type="button" x-on:click="showResults = !showResults" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5">
-            <img src="assets/images/icon-calculator.svg" alt="" class="shrink-0">
-            <span class="text-lg text-slate-darker font-bold">Calculate Repayments</span>
-          </button>
+          <div class="col-span-full lg:pt-4">
+            <button type="button" x-on:click="showResults = !showResults" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 md:px-6 lg:px-10 md:w-auto">
+              <img src="assets/images/icon-calculator.svg" alt="" class="shrink-0">
+              <span class="text-lg text-slate-darker font-bold">Calculate Repayments</span>
+            </button>
+          </div>
         </div>
       </form>
     </section>
-    <section class="bg-slate-darker text-white py-8 px-6">
+    <section class="bg-slate-darker text-white py-8 px-6 md:rounded-bl-[5rem] md:grid md:max-w-1/2 lg:p-10">
       <!-- Empty results start -->
-      <section x-show="!showResults" class="space-y-4">
+      <section x-show="!showResults" class="space-y-4 md:place-self-center">
         <img class="mx-auto" src="assets/images/illustration-empty.svg">
         <h2 class="text-center text-2xl font-bold antialiased">Results shown here</h2>
         <p class="text-center text-slate-lighter tracking-tiny">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
       </section>
       <!-- Empty results end -->
       <!-- Completed results start -->
-      <section x-show="showResults" class="space-y-4">
-        <h2 class="text-2xl font-bold antialiased">Your results</h2>
-        <p class="text-slate-lighter tracking-tiny pb-4">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+      <section x-show="showResults">
+        <h2 class="text-2xl font-bold antialiased mb-4">Your results</h2>
+        <p class="text-slate-lighter tracking-tiny pb-4 mb-3 lg:mb-7">Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
 
-        <section class="bg-slate-darkest rounded-md shadow-(--lime-top) px-4 pt-5 pb-6">
+        <section class="bg-slate-darkest rounded-md shadow-(--lime-top) px-4 pt-5 pb-6 lg:py-7 lg:pb-8 lg:px-8">
           <p class="text-slate-lighter pb-0.5 tracking-tiny">Your monthly repayments</p>
-          <p class="text-[2.5rem] font-bold text-lime antialiased"><span>&pound;</span>1,797.74</p>
-          <hr class="border-slate-dark/80 mt-3 mb-4">
+          <p class="text-[2.5rem] font-bold text-lime antialiased lg:text-[3.5rem]"><span>&pound;</span>1,797.74</p>
+          <hr class="border-slate-dark/80 mt-3 mb-4 lg:mt-6 lg:mb-8">
           <p class="text-slate-lighter pb-1.5 tracking-tiny">Total you'll repay over the term</p>
           <p class="font-bold text-2xl antialiased"><span>&pound;</span>539,322.94</p>
         </section>

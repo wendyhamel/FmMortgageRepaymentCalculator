@@ -591,9 +591,25 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .size-2 {
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+  }
+  .size-4 {
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
+  }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+  .size-8 {
+    width: calc(var(--spacing) * 8);
+    height: calc(var(--spacing) * 8);
   }
   .h-screen {
     height: 100vh;
@@ -1798,6 +1814,9 @@
   .\[color\:red\]\/50\! {
     color: color-mix(in oklab, red 50%, transparent) !important;
   }
+  .text-current {
+    color: currentColor;
+  }
   .text-lime {
     color: var(--color-lime);
   }
@@ -2015,6 +2034,9 @@
   }
   .outline-slate-neutral {
     outline-color: var(--color-slate-neutral);
+  }
+  .outline-transparent {
+    outline-color: transparent;
   }
   .blur {
     --tw-blur: blur(8px);
@@ -2330,6 +2352,11 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
+  .focus-within\:border-lime {
+    &:focus-within {
+      border-color: var(--color-lime);
+    }
+  }
   .focus-within\:opacity-100 {
     &:focus-within {
       opacity: 100%;
@@ -2352,9 +2379,19 @@
       outline-offset: calc(2px * -1);
     }
   }
+  .focus-within\:outline-offset-2 {
+    &:focus-within {
+      outline-offset: 2px;
+    }
+  }
   .focus-within\:outline-lime {
     &:focus-within {
       outline-color: var(--color-lime);
+    }
+  }
+  .focus-within\:outline-slate-darkest {
+    &:focus-within {
+      outline-color: var(--color-slate-darkest);
     }
   }
   .hover\:translate-y-0 {
@@ -2362,6 +2399,55 @@
       @media (hover: hover) {
         --tw-translate-y: calc(var(--spacing) * 0);
         translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:cursor-pointer {
+    &:hover {
+      @media (hover: hover) {
+        cursor: pointer;
+      }
+    }
+  }
+  .hover\:bg-lime\/50 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, var(--color-lime) 50%, transparent);
+      }
+    }
+  }
+  .hover\:bg-lime\/60 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in oklab, var(--color-lime) 60%, transparent);
+      }
+    }
+  }
+  .hover\:text-slate-dark {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-slate-dark);
+      }
+    }
+  }
+  .hover\:text-slate-darker {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-slate-darker);
+      }
+    }
+  }
+  .hover\:text-slate-darker\/90 {
+    &:hover {
+      @media (hover: hover) {
+        color: color-mix(in oklab, var(--color-slate-darker) 90%, transparent);
+      }
+    }
+  }
+  .hover\:text-slate-darkest {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-slate-darkest);
       }
     }
   }
@@ -2379,6 +2465,38 @@
       }
     }
   }
+  .hover\:outline {
+    &:hover {
+      @media (hover: hover) {
+        outline-style: var(--tw-outline-style);
+        outline-width: 1px;
+      }
+    }
+  }
+  .hover\:outline-lime {
+    &:hover {
+      @media (hover: hover) {
+        outline-color: var(--color-lime);
+      }
+    }
+  }
+  .hover\:outline-slate-darkest {
+    &:hover {
+      @media (hover: hover) {
+        outline-color: var(--color-slate-darkest);
+      }
+    }
+  }
+  .focus\:text-slate-darkest {
+    &:focus {
+      color: var(--color-slate-darkest);
+    }
+  }
+  .focus\:decoration-slate-darkest {
+    &:focus {
+      text-decoration-color: var(--color-slate-darkest);
+    }
+  }
   .focus\:outline {
     &:focus {
       outline-style: var(--tw-outline-style);
@@ -2389,6 +2507,11 @@
     &:focus {
       outline-style: var(--tw-outline-style);
       outline-width: 0px;
+    }
+  }
+  .focus\:outline-lime {
+    &:focus {
+      outline-color: var(--color-lime);
     }
   }
   .focus\:outline-none {
@@ -2409,6 +2532,11 @@
       outline-width: 2px;
     }
   }
+  .focus-visible\:outline-offset-1 {
+    &:focus-visible {
+      outline-offset: 1px;
+    }
+  }
   .focus-visible\:outline-offset-2 {
     &:focus-visible {
       outline-offset: 2px;
@@ -2417,6 +2545,20 @@
   .focus-visible\:outline-lime {
     &:focus-visible {
       outline-color: var(--color-lime);
+    }
+  }
+  .focus-visible\:outline-none {
+    &:focus-visible {
+      --tw-outline-style: none;
+      outline-style: none;
+    }
+  }
+  .focus-visible\:before\:bg-lime {
+    &:focus-visible {
+      &::before {
+        content: var(--tw-content);
+        background-color: var(--color-lime);
+      }
     }
   }
   .disabled\:border-slate-lighter {

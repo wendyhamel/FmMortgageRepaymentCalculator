@@ -96,15 +96,15 @@
           <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3 col-span-full">
             <legend for="mortgage type" class="block text-slate-dark tracking-tiny pt-px">Mortgage Type</legend>
             <template x-for="type in mortgageTypes">
-              <label value="Repayment" aria-label="Repayment" class="group flex items-center cursor-pointer outline outline-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:outline-lime has-[:checked]:bg-lime/10 hover:outline-lime focus-within:outline-2 focus-within:outline-lime transition">
+              <label :aria-label="type.name" class="group flex items-center cursor-pointer outline outline-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:outline-lime has-[:checked]:bg-lime/10 hover:outline-lime focus-within:outline-2 focus-within:outline-lime transition">
                 <input
                         type="radio"
                         name="mortgage type"
-                        :value="type"
+                        :value="type.id"
                         x-model="selectedType"
                         class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-slate-dark bg-white before:absolute before:inset-[3px] before:rounded-full before:bg-white checked:border-lime checked:before:bg-lime forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden focus-visible:outline-none"
                 >
-                <span class="block text-lg font-bold text-slate-darker tracking-tiny ml-4.5" x-text="type"></span>
+                <span class="block text-lg font-bold text-slate-darker tracking-tiny ml-4.5" x-text="type.name"></span>
               </label>
             </template>
 
@@ -136,18 +136,14 @@
           <p class="text-[2.5rem] font-bold text-lime antialiased lg:text-[3.5rem]"><span>&pound;</span><span x-text="monthlyRepayment"></span></p>
           <hr class="border-slate-dark/80 mt-3 mb-4 lg:mt-6 lg:mb-8">
           <p class="text-slate-lighter pb-1.5 tracking-tiny">Total you'll repay over the term</p>
-          <p class="font-bold text-2xl antialiased"><span>&pound;</span><span x-text="total"></span></p>
-        </section>
-
-        <section x-show="showWarning" class="mt-4">
-          <p class="text-red tracking-tiny">
-            Warning:
+          <p class="font-bold text-2xl antialiased">
+            <span>&pound;</span><span x-text="total"></span>
+            <sup x-show="showWarning" class="text-slate-lighter">*</sup>
           </p>
-          <p class="text-slate-lighter text-sm tracking-tiny">
-            You still have to pay back the mortgage amount of &pound;<span x-text="amount"></span> at the end of the term.
+          <p x-show="showWarning" class="text-slate-lighter text-sm tracking-tiny mt-0.5">
+            * <span class="text-red ">The mortgage amount of &pound;<span x-text="amount"></span> is owed at the end of the term.</span>
           </p>
         </section>
-
       </section>
   <!-- Completed results end -->
     </section>

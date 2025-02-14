@@ -44,73 +44,102 @@
           <div class="col-span-full">
             <label for="amount" class="block text-slate-dark tracking-tiny pb-px">Mortgage Amount</label>
             <div class="mt-2.5">
-              <div class="flex items-center rounded-sm bg-white overflow-hidden outline outline-1 outline-slate-neutral hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition">
-                <div class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">&pound;</div>
+              <div
+                  class="flex items-center rounded-sm bg-white overflow-hidden outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  :class="validation.amount.message ? 'outline-red' : 'outline-slate-neutral'"
+              >
+                <div
+                    class="shrink-0 select-none py-2.5 px-4 text-lg font-bold"
+                    :class="validation.amount.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
+                >&pound;</div>
                 <input
                     type="text"
                     name="amount"
                     id="amount"
                     :value="amount"
                     x-model="amount"
+                    x-on:input.blur="validateLive()"
+                    required
                     x-mask:dynamic="$money($input)"
                     class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
                     aria-describedby="mortgage-amount"
                 >
               </div>
             </div>
+            <div x-show="validation.amount.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.amount.message"></div>
           </div>
           <div class="col-span-1">
             <label for="term" class="block text-slate-dark tracking-tiny py-px">Mortgage Term</label>
             <div class="mt-2.5">
-              <div class="flex items-center rounded-sm bg-white outline outline-1 outline-slate-neutral hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition">
+              <div
+                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  :class="validation.term.message ? 'outline-red' : 'outline-slate-neutral'"
+              >
                 <input
                     type="text"
                     name="term"
                     id="term"
                     :value="term"
                     x-model="term"
+                    x-on:input.blur="validateLive()"
+                    required
                     class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
                     aria-describedby="mortgage-term"
                 >
-                <div id="mortgage-term" class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">years</div>
+                <div
+                    id="mortgage-term"
+                    class="shrink-0 select-none py-2.5 px-4 text-lg font-bold"
+                    :class="validation.term.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
+                >years</div>
               </div>
             </div>
+            <div x-show="validation.term.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.term.message"></div>
           </div>
           <div class="col-span-1">
             <label for="rate" class="block text-slate-dark tracking-tiny py-px">Interest Rate</label>
             <div class="mt-2.5">
-              <div class="flex items-center rounded-sm bg-white outline outline-1 outline-slate-neutral hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition">
+              <div
+                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  :class="validation.rate.message ? 'outline-red' : 'outline-slate-neutral'"
+              >
                 <input
                     type="text"
                     name="rate"
                     id="rate"
                     :value="rate"
                     x-model="rate"
+                    x-on:input.blur="validateLive()"
+                    required
                     class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
                     aria-describedby="interest-rate"
                 >
-                <div id="interest-rate" class="shrink-0 select-none bg-slate-lightest py-2.5 px-4 text-lg font-bold text-slate-dark">%</div>
+                <div
+                      id="interest-rate"
+                      class="shrink-0 select-none  py-2.5 px-4 text-lg font-bold"
+                      :class="validation.rate.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
+                >%</div>
               </div>
             </div>
+            <div x-show="validation.rate.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.rate.message"></div>
           </div>
           <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3 col-span-full">
             <legend for="mortgage type" class="block text-slate-dark tracking-tiny pt-px">Mortgage Type</legend>
             <template x-for="type in mortgageTypes">
               <label :aria-label="type.name" class="group flex items-center cursor-pointer outline outline-slate-neutral px-4.5 py-2.5 rounded-sm focus:outline-none has-[:checked]:relative has-[:checked]:outline-lime has-[:checked]:bg-lime/10 hover:outline-lime focus-within:outline-2 focus-within:outline-lime transition">
                 <input
-                        type="radio"
-                        name="mortgage type"
-                        :value="type.id"
-                        x-model="selectedType"
-                        class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-slate-dark bg-white before:absolute before:inset-[3px] before:rounded-full before:bg-white checked:border-lime checked:before:bg-lime forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden focus-visible:outline-none"
+                      type="radio"
+                      name="mortgage type"
+                      :value="type.id"
+                      x-model="selectedType"
+                      class="relative size-5 shrink-0 appearance-none rounded-full border-2 border-slate-dark bg-white before:absolute before:inset-[3px] before:rounded-full before:bg-white checked:border-lime checked:before:bg-lime forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden focus-visible:outline-none"
                 >
                 <span class="block text-lg font-bold text-slate-darker tracking-tiny ml-4.5" x-text="type.name"></span>
               </label>
             </template>
-
+            <div x-show="validation.selectedType.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.selectedType.message"></div>
           </fieldset>
           <div class="col-span-full lg:pt-4">
-            <button type="button" x-on:click="calculateInterest()" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 text-slate-darker outline outline-transparent cursor-pointer md:px-6 lg:px-10 md:w-auto hover:bg-lime/50 hover:text-slate-darker/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime transition">
+            <button type="button" x-on:click="submit()" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 text-slate-darker outline outline-transparent cursor-pointer md:px-6 lg:px-10 md:w-auto hover:bg-lime/50 hover:text-slate-darker/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime transition">
               <svg class="shrink-0 text-current size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
               <span class="text-lg font-bold">Calculate Repayments</span>
             </button>
@@ -133,11 +162,11 @@
 
         <section class="bg-slate-darkest rounded-md shadow-(--lime-top) px-4 pt-5 pb-6 lg:py-7 lg:pb-8 lg:px-8">
           <p class="text-slate-lighter pb-0.5 tracking-tiny">Your monthly repayments</p>
-          <p class="text-[2.5rem] font-bold text-lime antialiased lg:text-[3.5rem]"><span>&pound;</span><span x-text="monthlyRepayment"></span></p>
+          <p class="text-[2.5rem] font-bold text-lime antialiased lg:text-[3.5rem]"><span x-text="monthlyRepayment"></span></p>
           <hr class="border-slate-dark/80 mt-3 mb-4 lg:mt-6 lg:mb-8">
           <p class="text-slate-lighter pb-1.5 tracking-tiny">Total you'll repay over the term</p>
           <p class="font-bold text-2xl antialiased">
-            <span>&pound;</span><span x-text="total"></span>
+            <span x-text="total"></span>
             <sup x-show="showWarning" class="text-slate-lighter">*</sup>
           </p>
           <p x-show="showWarning" class="text-slate-lighter text-sm tracking-tiny mt-0.5">

@@ -66,7 +66,7 @@
                 >
               </div>
             </div>
-            <div x-show="validation.amount.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.amount.message"></div>
+            <p x-show="validation.amount.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.amount.message"></p>
           </div>
           <div class="col-span-1">
             <label for="term" class="block text-slate-dark tracking-tiny py-px">Mortgage Term</label>
@@ -93,7 +93,7 @@
                 >years</div>
               </div>
             </div>
-            <div x-show="validation.term.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.term.message"></div>
+            <p x-show="validation.term.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.term.message"></p>
           </div>
           <div class="col-span-1">
             <label for="rate" class="block text-slate-dark tracking-tiny py-px">Interest Rate</label>
@@ -120,7 +120,7 @@
                 >%</div>
               </div>
             </div>
-            <div x-show="validation.rate.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.rate.message"></div>
+            <p x-show="validation.rate.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.rate.message"></p>
           </div>
           <fieldset aria-label="mortgage type" class="rounded-md bg-white space-y-3 col-span-full">
             <legend for="mortgage type" class="block text-slate-dark tracking-tiny pt-px">Mortgage Type</legend>
@@ -136,7 +136,7 @@
                 <span class="block text-lg font-bold text-slate-darker tracking-tiny ml-4.5" x-text="type.name"></span>
               </label>
             </template>
-            <div x-show="validation.selectedType.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.selectedType.message"></div>
+            <p x-show="validation.selectedType.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.selectedType.message"></p>
           </fieldset>
           <div class="col-span-full lg:pt-4">
             <button type="button" x-on:click="submit()" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 text-slate-darker outline outline-transparent cursor-pointer md:px-6 lg:px-10 md:w-auto hover:bg-lime/50 hover:text-slate-darker/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime transition">

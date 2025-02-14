@@ -1318,6 +1318,9 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .bg-white\/90 {
+    background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
+  }
   .-bg-conic {
     --tw-gradient-position: in oklab;
     background-image: conic-gradient(var(--tw-gradient-stops));
@@ -1689,6 +1692,9 @@
   }
   .text-slate-darker {
     color: var(--color-slate-darker);
+  }
+  .text-slate-darkest {
+    color: var(--color-slate-darkest);
   }
   .text-slate-lighter {
     color: var(--color-slate-lighter);

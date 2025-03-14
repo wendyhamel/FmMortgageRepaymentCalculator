@@ -26,11 +26,11 @@
 
 </head>
 <body class="bg-slate-lightest min-h-dvh md:grid md:place-content-center">
-<main class="max-w-screen-lg mx-auto sm:px-4 sm:py-8 lg:py-0 lg:px-2">
-  <section x-data="repayMortgageCalc()" class="bg-white sm:rounded-3xl sm:overflow-hidden md:flex">
-    <section class="py-8 px-6 md:px-8 md:pt-8 md:pb-16 md:grow lg:p-10">
+<main class="max-w-xl mx-auto sm:py-8 lg:max-w-5xl lg:py-0 lg:px-2">
+  <section x-data="repayMortgageCalc()" class="bg-white sm:rounded-3xl sm:overflow-hidden lg:flex">
+    <section class="py-8 px-6 lg:px-8 lg:pt-8 lg:pb-16 md:grow lg:p-10">
       <form action="">
-        <div class="flex flex-col gap-2 mb-6 lg:flex-row lg:justify-between lg:items-center lg:mb-10">
+        <div class="flex flex-col gap-2 mb-6 sm:flex-row sm:justify-between sm:items-center lg:mb-10">
           <h1 class="font-bold text-2xl text-slate-darker">Mortgage Calculator</h1>
           <button
               type="button"
@@ -139,7 +139,7 @@
             <p x-show="validation.selectedType.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.selectedType.message"></p>
           </fieldset>
           <div class="col-span-full lg:pt-4">
-            <button type="button" x-on:click="submit()" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 text-slate-darker outline outline-transparent cursor-pointer md:px-6 lg:px-10 md:w-auto hover:bg-lime/50 hover:text-slate-darker/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime transition">
+            <button type="button" x-on:click="submit()" class="w-full flex justify-center items-center gap-3 bg-lime rounded-full px-4 py-3.5 text-slate-darker outline outline-transparent cursor-pointer lg:px-6 lg:px-10 lg:w-auto hover:bg-lime/50 hover:text-slate-darker/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime transition">
               <svg class="shrink-0 text-current size-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
               <span class="text-lg font-bold">Calculate Repayments</span>
             </button>
@@ -147,7 +147,7 @@
         </div>
       </form>
     </section>
-    <section class="bg-slate-darker text-white py-8 px-6 md:rounded-bl-[5rem] md:grid md:max-w-1/2 lg:p-10">
+    <section class="bg-slate-darker text-white py-8 px-6 lg:rounded-bl-[5rem] lg:grid lg:max-w-1/2 lg:p-10">
       <!-- Empty results start -->
       <section x-show="!showResults" class="space-y-4 md:place-self-center">
         <img class="mx-auto" src="assets/images/illustration-empty.svg" alt="">

@@ -2182,6 +2182,16 @@
   .transform-view {
     transform-box: view-box;
   }
+  .peer-focus\:bg-lime {
+    &:is(:where(.peer):focus ~ *) {
+      background-color: var(--color-lime);
+    }
+  }
+  .peer-focus\:text-slate-darker {
+    &:is(:where(.peer):focus ~ *) {
+      color: var(--color-slate-darker);
+    }
+  }
   .before\:absolute {
     &::before {
       content: var(--tw-content);
@@ -2223,6 +2233,11 @@
     &:focus-within {
       --tw-translate-y: calc(var(--spacing) * 0);
       translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .focus-within\:bg-lime {
+    &:focus-within {
+      background-color: var(--color-lime);
     }
   }
   .focus-within\:opacity-100 {
@@ -2314,6 +2329,15 @@
     &:hover {
       @media (hover: hover) {
         outline-color: var(--color-slate-darkest);
+      }
+    }
+  }
+  .focus-within\:hover\:outline-lime {
+    &:focus-within {
+      &:hover {
+        @media (hover: hover) {
+          outline-color: var(--color-lime);
+        }
       }
     }
   }

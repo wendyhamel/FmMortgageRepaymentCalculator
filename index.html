@@ -45,13 +45,9 @@
             <label for="amount" class="block text-slate-dark tracking-tiny pb-px">Mortgage Amount</label>
             <div class="mt-2.5">
               <div
-                  class="flex items-center rounded-sm bg-white overflow-hidden outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  class="flex flex-row-reverse items-center rounded-sm overflow-hidden outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-lime focus-within:hover:outline-lime focus-within:hover:outline-lime transition"
                   :class="validation.amount.message ? 'outline-red' : 'outline-slate-neutral'"
               >
-                <div
-                    class="shrink-0 select-none py-2.5 px-4 text-lg font-bold transition"
-                    :class="validation.amount.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
-                >&pound;</div>
                 <input
                     type="text"
                     name="amount"
@@ -61,9 +57,13 @@
                     x-on:input.blur="validateLive()"
                     required
                     x-mask:dynamic="$money($input)"
-                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
+                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition peer"
                     aria-describedby="mortgage-amount"
                 >
+                <div
+                    class="shrink-0 select-none py-2.5 px-4 text-lg font-bold transition"
+                    :class="validation.amount.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark peer-focus:bg-lime peer-focus:text-slate-darker'"
+                >&pound;</div>
               </div>
             </div>
             <p x-show="validation.amount.message" class="text-red text-sm tracking-tiny mt-2" x-text="validation.amount.message"></p>
@@ -72,7 +72,7 @@
             <label for="term" class="block text-slate-dark tracking-tiny py-px">Mortgage Term</label>
             <div class="mt-2.5">
               <div
-                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-lime focus-within:hover:outline-lime transition"
                   :class="validation.term.message ? 'outline-red' : 'outline-slate-neutral'"
               >
                 <input
@@ -83,13 +83,13 @@
                     x-model="term"
                     x-on:input.blur="validateLive()"
                     required
-                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
+                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition peer"
                     aria-describedby="mortgage-term"
                 >
                 <div
                     id="mortgage-term"
                     class="shrink-0 select-none py-2.5 px-4 text-lg font-bold transition"
-                    :class="validation.term.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
+                    :class="validation.term.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark peer-focus:bg-lime peer-focus:text-slate-darker'"
                 >years</div>
               </div>
             </div>
@@ -99,7 +99,7 @@
             <label for="rate" class="block text-slate-dark tracking-tiny py-px">Interest Rate</label>
             <div class="mt-2.5">
               <div
-                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-slate-darkest transition"
+                  class="flex items-center rounded-sm bg-white outline outline-1 hover:outline hover:outline-slate-darkest focus-within:outline focus-within:outline-lime focus-within:hover:outline-lime transition"
                   :class="validation.rate.message ? 'outline-red' : 'outline-slate-neutral'"
               >
                 <input
@@ -110,13 +110,13 @@
                     x-model="rate"
                     x-on:input.blur="validateLive()"
                     required
-                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition"
+                    class="w-44 block min-w-0 grow py-2.5 px-4 text-lg font-bold text-slate-darker focus:outline focus:outline-0 transition peer"
                     aria-describedby="interest-rate"
                 >
                 <div
                       id="interest-rate"
                       class="shrink-0 select-none  py-2.5 px-4 text-lg font-bold transition"
-                      :class="validation.rate.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark'"
+                      :class="validation.rate.message ? 'bg-red text-white' : 'bg-slate-lightest text-slate-dark peer-focus:bg-lime peer-focus:text-slate-darker'"
                 >%</div>
               </div>
             </div>

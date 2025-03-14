@@ -620,26 +620,11 @@
   .w-screen {
     width: 100vw;
   }
-  .max-w-2xl {
-    max-width: var(--container-2xl);
-  }
-  .max-w-5xl {
-    max-width: var(--container-5xl);
-  }
   .max-w-none {
     max-width: none;
   }
   .max-w-screen {
     max-width: 100vw;
-  }
-  .max-w-screen-2xl {
-    max-width: var(--breakpoint-2xl);
-  }
-  .max-w-screen-lg {
-    max-width: var(--breakpoint-lg);
-  }
-  .max-w-screen-md {
-    max-width: var(--breakpoint-md);
   }
   .max-w-xl {
     max-width: var(--container-xl);
@@ -2250,11 +2235,6 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
-  .focus-within\:bg-lime {
-    &:focus-within {
-      background-color: var(--color-lime);
-    }
-  }
   .focus-within\:opacity-100 {
     &:focus-within {
       opacity: 100%;
@@ -2266,20 +2246,9 @@
       outline-width: 1px;
     }
   }
-  .focus-within\:outline-2 {
-    &:focus-within {
-      outline-style: var(--tw-outline-style);
-      outline-width: 2px;
-    }
-  }
   .focus-within\:outline-lime {
     &:focus-within {
       outline-color: var(--color-lime);
-    }
-  }
-  .focus-within\:outline-slate-darkest {
-    &:focus-within {
-      outline-color: var(--color-slate-darkest);
     }
   }
   .hover\:translate-y-0 {
@@ -2446,19 +2415,9 @@
       border-radius: var(--radius-3xl);
     }
   }
-  .sm\:px-4 {
-    @media (width >= 40rem) {
-      padding-inline: calc(var(--spacing) * 4);
-    }
-  }
   .sm\:py-8 {
     @media (width >= 40rem) {
       padding-block: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:flex {
-    @media (width >= 48rem) {
-      display: flex;
     }
   }
   .md\:grid {
@@ -2466,29 +2425,9 @@
       display: grid;
     }
   }
-  .md\:w-auto {
-    @media (width >= 48rem) {
-      width: auto;
-    }
-  }
-  .md\:max-w-1\/2 {
-    @media (width >= 48rem) {
-      max-width: calc(1/2 * 100%);
-    }
-  }
-  .md\:max-w-5xl {
-    @media (width >= 48rem) {
-      max-width: var(--container-5xl);
-    }
-  }
   .md\:grow {
     @media (width >= 48rem) {
       flex-grow: 1;
-    }
-  }
-  .md\:flex-row {
-    @media (width >= 48rem) {
-      flex-direction: row;
     }
   }
   .md\:place-content-center {
@@ -2496,44 +2435,9 @@
       place-content: center;
     }
   }
-  .md\:items-center {
-    @media (width >= 48rem) {
-      align-items: center;
-    }
-  }
-  .md\:justify-between {
-    @media (width >= 48rem) {
-      justify-content: space-between;
-    }
-  }
   .md\:place-self-center {
     @media (width >= 48rem) {
       place-self: center;
-    }
-  }
-  .md\:rounded-bl-\[5rem\] {
-    @media (width >= 48rem) {
-      border-bottom-left-radius: 5rem;
-    }
-  }
-  .md\:px-6 {
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 6);
-    }
-  }
-  .md\:px-8 {
-    @media (width >= 48rem) {
-      padding-inline: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:pt-8 {
-    @media (width >= 48rem) {
-      padding-top: calc(var(--spacing) * 8);
-    }
-  }
-  .md\:pb-16 {
-    @media (width >= 48rem) {
-      padding-bottom: calc(var(--spacing) * 16);
     }
   }
   .lg\:mt-6 {
@@ -2584,21 +2488,6 @@
   .lg\:grid-cols-2 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  .lg\:flex-row {
-    @media (width >= 64rem) {
-      flex-direction: row;
-    }
-  }
-  .lg\:items-center {
-    @media (width >= 64rem) {
-      align-items: center;
-    }
-  }
-  .lg\:justify-between {
-    @media (width >= 64rem) {
-      justify-content: space-between;
     }
   }
   .lg\:rounded-bl-\[5rem\] {
@@ -2688,7 +2577,20 @@
     }
   }
 }
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/static/PlusJakartaSans-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/static/PlusJakartaSans-Bold.ttf') format('truetype');
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
